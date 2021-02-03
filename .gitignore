@@ -1,6 +1,7 @@
 # Build artifacts
 /target
 /esp/esp.img
+/esp/image_generator/__pycache__
 
 # IDE-specific
 /.idea
