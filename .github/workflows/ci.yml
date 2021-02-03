@@ -20,7 +20,7 @@ jobs:
       run: cargo build --verbose
     - name: Build for Aarch64
       run: cargo build --target aarch64-unknown-uefi-msvc.json
-    - name: Upload a Build Artifact
+    - name: Upload the target directory
       uses: actions/upload-artifact@v2.2.2
       with:
         name: target

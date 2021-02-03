@@ -20,14 +20,15 @@ def build_config(config_file):
     result = b'RCF\0'
 
     for name, params in config.items():
-        entry = ConfigEntry()
-        entry.display_name = name.encode('ascii')
-        entry.kernel = params['kernel'].encode('ascii')
-        entry.boot_protocol_version = params['boot_protocol_version']
-        entry.kernel_arguments_length = len(params['kernel_arguments'])
-        serialized = bytearray(entry)
-        result += pack('I', len(serialized))
-        result += serialized
-        result += params['kernel_arguments'].encode('ascii')
+        if type(params) is dict:
+            entry = ConfigEntry()
+            entry.display_name = name.encode('ascii')
+            entry.kernel = params['kernel'].encode('ascii')
+            entry.boot_protocol_version = params['boot_protocol_version']
+            entry.kernel_arguments_length = len(params['kernel_arguments'])
+            serialized = bytearray(entry)
+            result += pack('I', len(serialized))
+            result += serialized
+            result += params['kernel_arguments'].encode('ascii')
 
     return result
