@@ -1,3 +1,7 @@
+# Build artifacts
 /target
+/esp/esp.img
+
+# IDE-specific
 /.idea
 /.vscode
