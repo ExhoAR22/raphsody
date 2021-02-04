@@ -10,6 +10,7 @@ def build_argument_parser():
     parser = ArgumentParser()
     parser.add_argument('-c', '--config', help='configuration file name', default='rhapsody.toml')
     parser.add_argument('-s', '--size', help='size of the generated image, in MiBs', type=int, default=1)
+    parser.add_argument('-a', '--arch', help='architecture of the binaries to include', default='x86_64')
     parser.add_argument('-o', '--output', help='output file name', default='esp.img')
     return parser
 
@@ -17,7 +18,7 @@ def build_argument_parser():
 def main():
     parser = build_argument_parser()
     args = parser.parse_args()
-    generate(args.config, args.size, args.output)
+    generate(args.config, args.arch, args.size, args.output)
 
 
 if __name__ == '__main__':
