@@ -24,7 +24,7 @@ jobs:
     - name: Upload the target directory
       uses: actions/upload-artifact@v2.2.2
       with:
-        name: target
+        name: target-x86_64
         path: target
 
   build-aarch64:
@@ -40,5 +40,5 @@ jobs:
       - name: Upload the target directory
         uses: actions/upload-artifact@v2.2.2
         with:
-          name: target
+          name: target-aarch64
           path: target
