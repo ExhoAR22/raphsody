@@ -1,8 +1,0 @@
-#
-# Example Rhapsody configuration file
-#
-
-[ariaOS]
-kernel = "aria.exe"
-boot_protocol_version = 1
-kernel_arguments = "verbose"
