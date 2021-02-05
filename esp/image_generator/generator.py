@@ -1,5 +1,5 @@
 from .config import build_config
-from .fat32 import format, make_directory, add_file
+from .fat import format_image, make_directory, add_file
 
 
 def generate(config_file, arch, size, output):
@@ -18,6 +18,7 @@ def generate(config_file, arch, size, output):
     config = build_config(config_file)
     with open(output, 'wb') as output_file:
         image = bytearray(1024 * 1024 * size)
-        format(image)
+        format_image(image)
         make_directory(image, '/EFI')
         make_directory(image, '/EFI/BOOT')
+        add_file(image, '/Rhapsody.bin', config)
